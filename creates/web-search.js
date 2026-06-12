@@ -28,23 +28,22 @@ const perform = async (z, bundle) => {
   const engine = (i.engine || 'bing').toLowerCase();
   const q = i.q;
   const country = i.country || 'us';
-  const language = i.language || 'en';
+  // Bing/Brave require a `ll-cc` language code (e.g. en-us) and reject bare codes
+  // like `en`; send it only when the user provides that form, else let the engine
+  // use its default.
+  const lang = /^[a-z]{2}-[a-z]{2}$/i.test(i.language || '') ? i.language : undefined;
   const limit = i.limit || 10;
   const page = i.page || 1;
 
   let response;
   if (engine === 'brave') {
-    response = await z.request({
-      url: `${BASE_URL}/brave/search`,
-      method: 'GET',
-      params: { q, country, lang: language, offset: page > 1 ? page - 1 : 0 },
-    });
+    const params = { q, country, offset: page > 1 ? page - 1 : 0 };
+    if (lang) params.lang = lang;
+    response = await z.request({ url: `${BASE_URL}/brave/search`, method: 'GET', params });
   } else {
-    response = await z.request({
-      url: `${BASE_URL}/bing/search`,
-      method: 'GET',
-      params: { q, page, count: limit, country, lang: language },
-    });
+    const params = { q, page, count: limit, country };
+    if (lang) params.lang = lang;
+    response = await z.request({ url: `${BASE_URL}/bing/search`, method: 'GET', params });
   }
 
   const data = (response.data && response.data.data) || {};
@@ -91,8 +90,7 @@ module.exports = {
         key: 'language',
         label: 'Language',
         type: 'string',
-        default: 'en',
-        helpText: 'Language code, e.g. `en`.',
+        helpText: 'Optional `ll-cc` language code, e.g. `en-us`, `en-gb`, `de-de`. Leave blank to use the engine default.',
       },
       {
         key: 'limit',

@@ -8,7 +8,6 @@ const perform = (z, bundle) => {
     q: bundle.inputData.q,
     count: bundle.inputData.count,
     country: bundle.inputData.country,
-    lang: bundle.inputData.lang,
   }));
 };
 
@@ -25,7 +24,6 @@ module.exports = {
       { key: 'engine', label: 'Engine', type: 'string', choices: { google: 'Google', bing: 'Bing' }, default: 'google' },
       { key: 'count', label: 'Max suggestions', type: 'integer' },
       { key: 'country', label: 'Country', type: 'string', default: 'us' },
-      { key: 'lang', label: 'Language', type: 'string', default: 'en' },
     ],
     perform,
     sample: { query: 'coffee', suggestions: [{ position: 1, query: 'coffee near me' }] },
