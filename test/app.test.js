@@ -15,7 +15,21 @@ const liveIt = API_KEY ? it : it.skip;
 describe('Crawlora app definition', () => {
   it('exposes the expected generic actions', () => {
     expect(Object.keys(App.creates).sort()).toEqual(
-      ['find_website_contacts', 'get_page_content', 'web_search'].sort()
+      [
+        'check_site_accessibility',
+        'find_local_businesses',
+        'find_website_contacts',
+        'geocode_address',
+        'get_financial_quote',
+        'get_page_content',
+        'get_product_details',
+        'get_reviews',
+        'get_search_suggestions',
+        'get_social_profile',
+        'reverse_geocode',
+        'search_marketplace',
+        'web_search',
+      ].sort()
     );
   });
 

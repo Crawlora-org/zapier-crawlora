@@ -13,6 +13,19 @@ website contacts — then send the results to Sheets, Slack, a database, an AI s
 | **Get Page Content** | Fetch any URL as Markdown, HTML, links, or page metadata. |
 | **Web Search** | Run a web search (Bing or Brave) and get ranked results as structured data. |
 | **Find Website Contacts** | Find public emails, phones, and social profiles for a website by its URL. |
+| **Get Search Suggestions** | Get autocomplete suggestions for a search term. |
+| **Geocode an Address** | Convert an address or place name into coordinates and structured location data. |
+| **Reverse Geocode Coordinates** | Convert latitude/longitude into a structured address. |
+| **Check Site Accessibility** | Check whether a public page is reachable and what bot-protection signals it presents. |
+| **Find Local Businesses** | Find local businesses for a query (live map search or the stored business dataset). |
+| **Get Product Details** | Get product/app details by identifier from a chosen source. |
+| **Search a Marketplace** | Search a marketplace for products matching a query. |
+| **Get Reviews** | Get public reviews for a business, app, or listing from a chosen source. |
+| **Get Financial Quote** | Get the latest stock, index, or crypto quote from a chosen source. |
+| **Get Social Profile** | Get a public profile (or recent posts) by handle from a chosen platform. |
+
+Each action picks its data source with a dropdown — there are no per-site actions — and every request
+uses your Crawlora API key.
 
 ## Authentication
 
