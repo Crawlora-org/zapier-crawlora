@@ -8,8 +8,6 @@ const perform = (z, bundle) => {
   switch (source) {
     case 'ebay':
       return apiPost(z, '/ebay/search', clean({ keyword: i.query, page: i.page }));
-    case 'etsy':
-      return apiGet(z, '/etsy/search', clean({ q: i.query, page: i.page }));
     case 'amazon':
     default:
       return apiGet(z, '/amazon/search', clean({ k: i.query, page: i.page }));
@@ -30,7 +28,7 @@ module.exports = {
         label: 'Marketplace',
         type: 'string',
         required: true,
-        choices: { amazon: 'Amazon', ebay: 'eBay', etsy: 'Etsy' },
+        choices: { amazon: 'Amazon', ebay: 'eBay' },
         default: 'amazon',
       },
       { key: 'query', label: 'Search query', type: 'string', required: true },

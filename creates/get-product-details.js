@@ -41,7 +41,7 @@ module.exports = {
         label: 'Identifier',
         type: 'string',
         required: true,
-        helpText: 'Amazon: ASIN · eBay: item ID · App Store: numeric app ID · Google Play: package name.',
+        helpText: 'Amazon: ASIN · eBay: item ID · App Store: bundle ID (e.g. com.company.app) · Google Play: package name.',
       },
       { key: 'country', label: 'Country', type: 'string', helpText: 'App Store / Google Play only.' },
     ],

@@ -43,7 +43,7 @@ module.exports = {
         label: 'Identifier',
         type: 'string',
         required: true,
-        helpText: 'Trustpilot: business domain/slug · App Store: numeric app ID · Google Play: package name · Product Hunt: product ID · Airbnb: room ID.',
+        helpText: 'Trustpilot: business domain/slug · App Store: bundle ID (e.g. com.company.app) · Google Play: package name · Product Hunt: product ID · Airbnb: room ID.',
       },
       { key: 'country', label: 'Country', type: 'string', helpText: 'App Store / Google Play only.' },
       { key: 'page', label: 'Page', type: 'integer', default: '1' },
