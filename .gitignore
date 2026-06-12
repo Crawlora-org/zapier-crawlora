@@ -1,0 +1,9 @@
+node_modules/
+.env
+.environment
+.zapierapprc
+build/
+*.zip
+.DS_Store
+coverage/
+npm-debug.log*
